@@ -1,0 +1,10 @@
+include /components/form/f-search
+include /components/button/da-btn-header
+
+mixin p-header({ title, className })
+  header.p-layout__header(class=className)
+    h1.p-layout__header-title=title
+    .p-layout__header-content
+    +da-btn-header({ text: "Dispathcer Queue" })
+    form.p-layout__search(action="#" role="search")
+      +f-search({})

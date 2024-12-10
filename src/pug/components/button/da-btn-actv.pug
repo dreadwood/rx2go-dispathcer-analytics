@@ -1,0 +1,7 @@
+mixin da-btn-actv({ text, isActv, className })
+  - let clickHandler = "this.classList.toggle('actv')"
+  button.da-btn-actv(
+    class=isActv && "actv"
+    class=className
+    onclick=clickHandler
+  )=text

@@ -1,0 +1,52 @@
+.da-card-stat {
+  width: max-content;
+  padding: 15px;
+  font-family: @font-default;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+  text-align: left;
+  background-color: @color-white;
+  border: 1px solid @color-lavender-2;
+  border-radius: 20px;
+}
+.da-card-stat__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: @color-cobalt-blue-dark;
+  svg {
+    flex-shrink: 0;
+    width: 22px;
+    fill: @color-cornflower-blue;
+    aspect-ratio: 1 / 1;
+  }
+}
+.da-card-stat__list {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+  margin-top: 14px;
+}
+.da-card-stat__value {
+  position: relative;
+  span {
+    line-height: 21px;
+    font-weight: 600;
+    color: @color-lime-green-3;
+  }
+  &:not(:first-child)::before {
+    content: "|";
+    position: absolute;
+    bottom: 0;
+    left: -14px;
+    color: @color-gray-067;
+    opacity: 0.3;
+  }
+  &.error {
+    span {
+      color: @color-fluorescent-red;
+    }
+  }
+}

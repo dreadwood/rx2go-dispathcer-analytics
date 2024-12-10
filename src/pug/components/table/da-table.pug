@@ -1,0 +1,51 @@
+include /components/card/da-card-person
+
+mixin da-table-th({ text })
+  th
+    button.da-table__head(onclick="jsPug.btnTableHandle(this)")
+      span=text
+      .da-table__head-icon
+        +svg({ name: "arrow-sort-top", width: 8, height: 5 })
+        +svg({ name: "arrow-sort-bottom", width: 8, height: 5 })
+
+mixin da-table-text({ text, isError })
+  span(class=`text-${isError ? 'red' : 'green'}`)=text
+
+mixin da-table({})
+  .da-table
+    include /data/da-table-data
+    table.da-table__table
+      thead
+        tr
+          +da-table-th({ text: "Dispatcher" })
+          +da-table-th({ text: "Driver" })
+          +da-table-th({ text: "Order" })
+          +da-table-th({ text: "Request" })
+          +da-table-th({ text: "Created" })
+          +da-table-th({ text: "Started" })
+          +da-table-th({ text: "Completed" })
+          +da-table-th({ text: "Total" })
+      tbody
+        each it in daTableData
+          tr
+            td
+              +da-card-person({ name: it.dispatcherName, id: it.dispatcherId })
+            td
+              +da-card-person({ name: "Jony Maksudov", id: 219298384 })
+            td #19245347
+            td
+              .da-table__label(class=it.requestColor)
+                +svg({ name: it.requestIcon, width: 16, height: 16 })
+                span=it.requestName
+            td 11.12.2024 #[br] #{it.createdTime}
+            td
+              | #{it.startedTime} #[br]
+              +da-table-text({
+                text: it.startedDuration,
+                isError: it.startedDurationError
+              })
+            td
+              | #{it.completedTime} #[br]
+              +da-table-text({ text: it.completedDuration })
+            td
+              .da-table__time(class=it.totalColorError && "red")=it.totalValue

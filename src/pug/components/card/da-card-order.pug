@@ -1,0 +1,20 @@
+include /components/card/da-card-person
+
+mixin da-card-order({ isRejected })
+  .da-card-order
+    .da-card-order__content
+      div
+        .da-card-order__title Confirm the photo of the Fridgebag
+        .da-card-order__person
+          +da-card-person({
+            img: "/img/placeholder-user.png",
+            name: "Jony Maksudov",
+            id: 219298384
+          })
+        if isRejected
+          .da-card-order__label.red Rejected
+        else
+          .da-card-order__label Approved
+        .da-card-order__msg Dispatcher note bla-bla-bla.
+      .da-card-order__photo
+        +picture({ image: "/img/placeholder-bag.jpg", width: 105, height: 141 })

@@ -1,0 +1,10 @@
+include /components/button/da-btn-clipboard
+
+mixin da-card-person({ img, name, id, className })
+  .da-card-person(class=className)
+    .da-card-person__img
+      img(src=img || "/img/placeholder-user.png" width="36" height="36")
+    div=name
+    .da-card-person__id
+      =id
+      +da-btn-clipboard({})

@@ -1,0 +1,10 @@
+mixin da-card-stat({ title, icon, isError, className })
+  .da-card-stat(class=className)
+    .da-card-stat__title
+      +svg({ name: icon, width: 22, height: 22 })
+      span=title
+    .da-card-stat__list
+      .da-card-stat__value min: #[span 0m 2s]
+      .da-card-stat__value(class=isError && "error") max: #[span=(isError ? "15m 2s" : "7m 2s")]
+      .da-card-stat__value average: #[span 3m 27s]
+

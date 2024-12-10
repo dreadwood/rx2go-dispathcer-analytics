@@ -1,0 +1,17 @@
+mixin da-chart-btn({ text, isActv })
+  button.da-chart__btn(
+    class=isActv && "actv"
+    onclick="jsPug.bthActvHandle(this)"
+  )=text
+
+mixin da-chart({ title, id })
+  .da-chart
+    .da-chart__top
+      .da-chart__title=title
+      .da-chart__btn-list
+        +da-chart-btn({ text: "15min" })
+        +da-chart-btn({ text: "30min", isActv: true })
+        +da-chart-btn({ text: "1h" })
+        +da-chart-btn({ text: "3h" })
+    .da-chart__container
+      canvas(id=id height="75")

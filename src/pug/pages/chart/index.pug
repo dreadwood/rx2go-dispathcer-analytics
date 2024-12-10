@@ -1,0 +1,24 @@
+extends /elements/layout-page
+include /components/p-header
+include /components/block/b-top
+include /components/other/da-chart
+
+block data
+  - title = "Rx2Go Admin: Dispathcer Queue Analytics — Chart"
+  - headerTitle = "Dispathcer Queue Analytics"
+
+block header
+  +p-header({ title: headerTitle })
+
+block content
+  .p-da
+    +b-top({})
+    .p-da__chart
+      +da-chart({ title: "Number of requests", id: "chart1" })
+      +da-chart({ title: "In queque (min)", id: "chart2" })
+      +da-chart({ title: "Moderation speed (min)", id: "chart3" })
+      +da-chart({ title: "Total speed (min)", id: "chart4" })
+      script
+        include /components/other/da-chart.js
+
+block modal

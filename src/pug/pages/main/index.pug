@@ -1,0 +1,17 @@
+extends /elements/layout-page
+include /components/p-header
+include /components/table/da-table
+include /components/block/b-top
+
+block data
+  - title = "Rx2Go Admin: Dispathcer Queue Analytics"
+  - headerTitle = "Dispathcer Queue Analytics"
+
+block header
+  +p-header({ title: headerTitle })
+
+block content
+  .p-da
+    +b-top({})
+    .p-da__table
+      +da-table({})

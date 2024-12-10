@@ -1,0 +1,28 @@
+mixin script-pug({})
+  script.
+    ;(() => {
+      window.jsPug = {
+        btnTableHandle(btn) {
+          if (btn.classList.contains('top')) {
+            btn.classList.remove('top')
+            btn.classList.add('bottom')
+          } else if (btn.classList.contains('bottom')) {
+            btn.classList.remove('bottom')
+            btn.classList.add('top')
+          } else {
+            btn.classList.add('top')
+          }
+        },
+
+        modalClose(evt, node) {
+          if (evt.target !== node) return
+
+          const overlay = document.querySelector('.da-modal-order')
+          overlay.classList.remove('show')
+        },
+
+        bthActvHandle(btn) {
+          btn.classList.toggle('actv')
+        }
+      }
+    })()

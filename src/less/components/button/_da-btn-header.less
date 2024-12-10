@@ -1,0 +1,21 @@
+.da-btn-header {
+  .transition(background-color);
+  display: block;
+  flex-shrink: 0;
+  width: max-content;
+  margin: 0;
+  padding: 7px 36px;
+  font-family: @font-default;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 600;
+  color: @color-white;
+  background-color: @color-cornflower-blue;
+  border: 0;
+  border-radius: 30px;
+  &:not([disabled]):hover,
+  &:not([disabled]):focus-visible {
+    background-color: @color-cornflower;
+    cursor: pointer;
+  }
+}

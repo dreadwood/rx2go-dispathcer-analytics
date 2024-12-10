@@ -1,0 +1,42 @@
+include /components/card/da-card-order
+
+mixin da-modal-order({ isShow })
+  .da-modal-order(class=isShow && "show" onclick="jsPug.modalClose(event, this)")
+    .da-modal-order__offcanvas
+      button.da-modal-order__close(onclick="jsPug.modalClose(event, this)")
+        +svg({ name: "cross", width: 16, height: 16})
+      .da-modal-order__content
+        .da-modal-order__col.left
+          .da-modal-order__title Activity history Order #[a(href="#") #19245347]
+          .da-modal-order__line
+            .da-modal-order__point
+              span.da-modal-order__point-title Created
+              span 11.12.2024
+              span 06:11 pm
+            .da-modal-order__point.blue
+              span.da-modal-order__point-title Started
+              span 06:25 pm
+              span (2 min)
+            .da-modal-order__card
+              +da-card-order({ isRejected: true })
+            .da-modal-order__point.green
+              span.da-modal-order__point-title Completed
+              span 06:18 pm
+              span (7 min)
+            .da-modal-order__point
+              span.da-modal-order__point-title Created
+              span 06:23 pm
+            .da-modal-order__point.blue
+              span.da-modal-order__point-title Started
+              span 06:25 pm
+              span (2 min)
+            .da-modal-order__card
+              +da-card-order({})
+            .da-modal-order__point.green
+              span.da-modal-order__point-title Completed
+              span 06:18 pm
+              span (7 min)
+        .da-modal-order__col.right
+          .da-modal-order__title Chat in this order
+          .da-exist Chat
+

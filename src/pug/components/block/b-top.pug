@@ -1,0 +1,36 @@
+include /components/button/da-btn-actv
+include /components/button/da-btn-request
+include /components/button/da-btn-toogle
+include /components/card/da-card-stat
+include /components/form/f-cal-drop
+include /components/form/f-search
+
+mixin b-top({})
+  .p-da__top
+    .p-da__top-btn
+      +da-btn-actv({ text: "All (1234)", isActv: true })
+      +da-btn-actv({ text: "Time Window (234)" })
+      +da-btn-actv({ text: "Regular (456)" })
+      +da-btn-actv({ text: "Same day (765)" })
+    .p-da__top-right
+      +da-btn-toggle({ isChart: false })
+      +f-search({ className: "da-f-search" })
+      +f-cal-drop({})
+  .p-da__request
+    include /data/request-data.pug
+    .p-da__request-title Request:
+    .p-da__request-list
+      each it, i in requestData
+        +da-btn-request({
+          text: it.text,
+          icon: it.icon,
+          isActv: i === 0
+        })
+  .p-da__stat
+    include /data/stat-cards-data.pug
+    each it in statCardsData
+      +da-card-stat({
+        title: it.title,
+        icon: it.icon,
+        isError: it.isError
+      })

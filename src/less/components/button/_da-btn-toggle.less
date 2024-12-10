@@ -1,0 +1,41 @@
+.da-btn-toggle {
+  .transition(background-color);
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  margin: 0;
+  padding: 10px 16px;
+  font-family: @font-default;
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 600;
+  text-align: center;
+  color: @color-white;
+  background-color: @color-cornflower-blue;
+  border: 0;
+  border-radius: 30px;
+  svg {
+    flex-shrink: 0;
+    width: 16px;
+    aspect-ratio: 1 / 1;
+    fill: currentcolor;
+  }
+  &:not([disabled]):hover,
+  &:not([disabled]):focus-visible {
+    background-color: @color-cornflower;
+    cursor: pointer;
+  }
+  .graph {
+    display: none;
+  }
+  &.chart {
+    .graph {
+      display: block;
+    }
+    .table {
+      display: none;
+    }
+  }
+}

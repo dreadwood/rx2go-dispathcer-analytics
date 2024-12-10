@@ -1,0 +1,11 @@
+mixin da-btn-toggle({ isChart, className })
+  - let clickHandler = "this.classList.toggle('chart')"
+  button.da-btn-toggle(
+    class=isTable && "chart"
+    class=className
+    onclick=clickHandler
+  )
+    +svg({ name: "table", width: 16, height: 16, className: "table" })
+    +svg({ name: "graph", width: 16, height: 16, className: "graph" })
+    span.table Table
+    span.graph Chart

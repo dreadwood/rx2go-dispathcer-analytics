@@ -1,0 +1,42 @@
+.f-cal-drop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  min-width: 260px;
+  margin: 0;
+  padding: 11px 12px;
+  font-family: @font-default;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+  text-align: left;
+  color: @color-signal-blue;
+  background-color: transparent;
+  border: 1px solid rgb(@color-light-purple-blue 0.3);
+  border-radius: 10px;
+  svg {
+    .transition(fill);
+    flex-shrink: 0;
+    fill: @color-cornflower-blue;
+  }
+  .cal {
+    width: 16px;
+    height: 16px;
+  }
+  .arrow {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+  }
+  &:not([disabled]):hover,
+  &:not([disabled]):focus-visible {
+    cursor: pointer;
+    svg {
+      fill: #4099e5;
+    }
+  }
+}
+.f-cal-drop__date {
+  font-weight: 700;
+}

@@ -1,0 +1,10 @@
+mixin da-btn-request({ text, icon, isActv, className })
+  - let clickHandler = "this.classList.toggle('actv')"
+  button.da-btn-request(
+    class=isActv && "actv"
+    class=className
+    onclick=clickHandler
+  )
+    if icon
+      +svg({ name: icon, width: 14, height: 14 })
+    span=text
